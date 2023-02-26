@@ -2,16 +2,16 @@ public class WolfTest {
 
     public static void main(String[] args) {
         Wolf leva = new Wolf();
-        leva.age = 5;
-        leva.name = "Leva";
-        leva.color = "blue";
-        leva.sex = "male";
-        leva.weight = 16.3;
-        System.out.println(leva.name);
-        System.out.println(leva.age);
-        System.out.println(leva.color);
-        System.out.println(leva.sex);
-        System.out.println(leva.weight);
+        leva.setAge(9);
+        leva.setName("Leva");
+        leva.setColor("blue");
+        leva.setSex("male");
+        leva.setWeight(16.3);
+        System.out.println(leva.getName());
+        System.out.println(leva.getAge());
+        System.out.println(leva.getColor());
+        System.out.println(leva.getSex());
+        System.out.println(leva.getWeight());
         leva.go();
         leva.howl();
         leva.hunter();
