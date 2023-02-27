@@ -3,7 +3,7 @@ public class IfElseStatementTheme {
     public static void main(String[] args) {
         System.out.println("Перевод псевдокода на язык Java (это название задачи)");
         int age = 25;
-        boolean man = true;
+        boolean isMan = true;
         double height = 1.84;
         String name = "Roman";
         if (age > 20) {
@@ -11,7 +11,7 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("Нельзя");
         }
-        if (man) {
+        if (isMan) {
             System.out.println("Man");
         } else {
             System.out.println("Woman");
@@ -21,10 +21,10 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("Низкий");
         }
-        char firstName = name.charAt(0);
-        if (firstName == 'M') {
+        char firstCharOfName = name.charAt(0);
+        if (firstCharOfName == 'M') {
             System.out.println("Michel");
-        } else if (firstName == 'I') {
+        } else if (firstCharOfName == 'I') {
             System.out.println("Ivan");
         } else {
             System.out.println("Unknown");
@@ -41,15 +41,15 @@ public class IfElseStatementTheme {
             System.out.println("Равны");
         }
         System.out.println("\nПроверка числа");
-        num1 = 34;
+        int defaultNumber = 34;
         System.out.println(num1);
-        if (num1 != 0) {
-            if (num1 % 2 == 0) {
+        if (defaultNumber != 0) {
+            if (defaultNumber % 2 == 0) {
                 System.out.println("Четное");
             } else {
                 System.out.println("Нечетное");
             }
-            if (num1 > 0) {
+            if (defaultNumber > 0) {
                 System.out.println("ПОложительное");
             } else {
                 System.out.println("Отрицательное");
@@ -60,27 +60,27 @@ public class IfElseStatementTheme {
         System.out.println("\nПоиск одинаковых цифр в числах");
         num1 = 123;
         num2 = 223;
-        int a1 = num1 / 100;
-        int b1 = num2 / 100;
-        int a2 = (num1 / 10) % 10;
-        int b2 = (num2 / 10) % 10;
-        int a3 = num1 % 10;
-        int b3 = num2 % 10;
-        boolean equal = false;
+        int num1First = num1 / 100;
+        int num2First = num2 / 100;
+        int num1Second = (num1 / 10) % 10;
+        int num2Second = (num2 / 10) % 10;
+        int num1Third = num1 % 10;
+        int num2Third = num2 % 10;
+        boolean isEqual = false;
         System.out.println(num1 + " " + num2);
-        if (a1 == b1) {
-            System.out.println(a1 + " " + 1 + " разряд");
-            equal = true;
+        if (num1First == num2First) {
+            System.out.println(num1First + " " + 1 + " разряд");
+            isEqual = true;
         }
-        if (a2 == b2) {
-            System.out.println(a2 + " " + 2 + " разряд");
-            equal = true;
+        if (num1Second == num2Second) {
+            System.out.println(num1Second + " " + 2 + " разряд");
+            isEqual = true;
         }
-        if (a3 == b3) {
-            System.out.println(a3 + " " + 3 + " разряд");
-            equal = true;
+        if (num1Third == num2Third) {
+            System.out.println(num1Third + " " + 3 + " разряд");
+            isEqual = true;
         }
-        if (equal == false) {
+        if (isEqual == false) {
             System.out.println("Нет равных чисел");
         }
 
@@ -98,19 +98,19 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\nПодсчет суммы вклада и начисленных банком %");
-        int sumka = 300_000;
-        if (sumka < 100_000) {
-            double percent = Math.round(sumka * 0.05);
-            double itog = sumka + percent;
-            System.out.println("Сумма равна " + sumka + ", начисленный процент " + percent + ", итоговая сумма " + itog);
-        } else if (sumka <= 300_000) {
-            double percent = Math.round(sumka * 0.07);
-            double itog = sumka + percent;
-            System.out.println("Сумма равна " + sumka + ", начисленный процент " + percent + ", итоговая сумма " + itog);
+        int sum = 300_000;
+        if (sum < 100_000) {
+            double percent = Math.round(sum * 0.05);
+            double itog = sum + percent;
+            System.out.println("Сумма равна " + sum + ", начисленный процент " + percent + ", итоговая сумма " + itog);
+        } else if (sum <= 300_000) {
+            double percent = Math.round(sum * 0.07);
+            double itog = sum + percent;
+            System.out.println("Сумма равна " + sum + ", начисленный процент " + percent + ", итоговая сумма " + itog);
         } else {
-            double percent = Math.round(sumka * 0.1);
-            double itog = sumka + percent;
-            System.out.println("Сумма равна " + sumka + ", начисленный процент " + percent + ", итоговая сумма " + itog);
+            double percent = Math.round(sum * 0.1);
+            double sumTotal = sum + percent;
+            System.out.println("Сумма равна " + sum + ", начисленный процент " + percent + ", итоговая сумма " + sumTotal);
         }
         System.out.println("\nОпределение оценки по предметам");
         int historyPercent = 59;
@@ -135,20 +135,20 @@ public class IfElseStatementTheme {
         } else {
             progBall = 5;
         }
-        double srednee = (progBall + historyBall) / 2;
-        double sredneePersent = (programmingPercent + historyPercent) / 2;
+        double average = (progBall + historyBall) / 2;
+        double averagePersent = (programmingPercent + historyPercent) / 2;
         System.out.println(historyBall + " история\n" + progBall + " программирование");
-        System.out.println("СРедний балл равен " + srednee + "\nсредний процент равен " + sredneePersent);
+        System.out.println("СРедний балл равен " + average + "\nсредний процент равен " + averagePersent);
 
         System.out.println("\nРасчет прибыли за год");
         int arenda = 5000;
         int sale = 13000;
-        int sebes = 9000;
-        int pribil = (sale - sebes - arenda) * 12;
-        if (pribil >= 0) {
-            System.out.println("прибыль за год: +" + pribil + " руб.");
+        int costPrice = 9000;
+        int profit = (sale - costPrice - arenda) * 12;
+        if (profit >= 0) {
+            System.out.println("прибыль за год: +" + profit + " руб.");
         } else {
-            System.out.println("прибыль за год: " + pribil + " руб.");
+            System.out.println("прибыль за год: " + profit + " руб.");
         }
         System.out.println("\nПодсчет количества банкнот");
         int money = 567;
