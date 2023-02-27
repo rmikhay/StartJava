@@ -1,49 +1,49 @@
 public class VariablesTheme {
 
     public static void main(String[] args) {
-        System.out.println("Вывод значений переменных на консоль");
-        boolean videocard = true;
-        byte volVideo = 6;
-        short cpu = 8;
-        int opera = 2333;
-        long led = 25;
+        System.out.println("1. Вывод значений переменных на консоль");
+        boolean isVideocardAvailable = true;
+        byte volumeVideo = 6;
+        short corseOfCpu = 8;
+        int RamFrequency = 2333;
+        long diagonalMonitor = 25;
         char indexCpu = 'K';
-        float operaNumber = 2;
-        double CpuHerz = 3.8;
-        System.out.println("Наличие видеокарты - " + videocard + ", объем - " + volVideo + "GB");
-        System.out.println("Ядер процессора - " + cpu + ", индекс - " + indexCpu + ", частота - " + CpuHerz + "МГц");
-        System.out.println("Оперативная память - " + opera + "Гц, планок - " + operaNumber);
-        System.out.println("Монитор- " + led + "дюйм \n");
+        float RamCount = 2;
+        double cpuFrequencyMhz = 3.8;
+        System.out.println("Наличие видеокарты - " + isVideocardAvailable + ", объем - " + volumeVideo + "GB");
+        System.out.println("Ядер процессора - " + corseOfCpu + ", индекс - " + indexCpu + ", частота - " + cpuFrequencyMhz + "МГц");
+        System.out.println("Оперативная память - " + RamFrequency + "Гц, планок - " + RamCount);
+        System.out.println("Монитор- " + diagonalMonitor + "дюйм \n");
 
-        System.out.println("Расчет стоимости товара со скидкой");
+        System.out.println("2. Расчет стоимости товара со скидкой");
         int penPrice = 100;
         int bookPrice = 200;
         int discount = 11;
         int fullPrice = penPrice + bookPrice;
-        double discountRuble = (fullPrice * discount) / 100;
-        double priceWithDiscount = fullPrice - discountRuble;
+        double discountSum = (fullPrice * discount) / 100;
+        double discountPrice = fullPrice - discountSum;
 
         System.out.println("Цена без скидки " + fullPrice + " руб.");
-        System.out.println("Скидка " + discountRuble + " руб.");
-        System.out.println("Цена со скидкой " + priceWithDiscount + " руб. \n");
+        System.out.println("Скидка " + discountSum + " руб.");
+        System.out.println("Цена со скидкой " + discountPrice + " руб. \n");
 
-        System.out.println("Вывод слова JAVA");
+        System.out.println("3. Вывод слова JAVA");
         System.out.println("   J    a  v     v  a ");
         System.out.println("   J   a a  v   v  a a ");
         System.out.println("J  J  aaaaa  V V  aaaaa");
         System.out.println(" JJ  a     a  V  a     a \n");
 
-        System.out.println("Вывод min и max значений целых числовых типов");
+        System.out.println("4. Вывод min и max значений целых числовых типов");
         short s = Short.MAX_VALUE;
-        System.out.println(s + "\n" + s++ + "\n" + s--);
+        System.out.println(s + "\n" + s++ + "\n" + --s);
         int i = Integer.MAX_VALUE;
-        System.out.println(i + "\n" + i++ + "\n" + i--);
+        System.out.println(i + "\n" + ++i + "\n" + --i);
         byte b = Byte.MAX_VALUE;
-        System.out.println(b + "\n" + b++ + "\n" + b--);
+        System.out.println(b + "\n" + ++b + "\n" + --b);
         long l = Long.MAX_VALUE;
-        System.out.println(l + "\n" + l++ + "\n" + l--);
+        System.out.println(l + "\n" + ++l + "\n" + --l);
 
-        System.out.println("\nПерестановка значений переменных");
+        System.out.println("\n5. Перестановка значений переменных");
         int x = 2;
         int y = 5;
         System.out.println("с помощью третьей переменной, исходные числа - " + x + " и " + y);
@@ -62,51 +62,46 @@ public class VariablesTheme {
         x ^= y;
         System.out.println("Получилось " + x + " и " + y);
 
-        System.out.println(" \nВывод символов и их кодов");
+        System.out.println("\n6. Вывод символов и их кодов");
         char k1 = '#';
-        int k1_n = (int)k1;
         char k2 = '&';
-        int k2_n = (int)k2;
         char k3 = '@';
-        int k3_n = (int)k3;
         char k4 = '^';
-        int k4_n = (int)k4;
         char k5 = '_';
-        int k5_n = (int)k5;
-        System.out.println(k1_n + " " + k1);
-        System.out.println(k2_n + " " + k2);
-        System.out.println(k3_n + " " + k3);
-        System.out.println(k4_n + " " + k4);
-        System.out.println(k5_n + " " + k5);
+        System.out.println((int) k1 + " " + k1);
+        System.out.println((int) k2 + " " + k2);
+        System.out.println((int) k3 + " " + k3);
+        System.out.println((int) k4 + " " + k4);
+        System.out.println((int) k5 + " " + k5);
 
-        System.out.println(" \nВывод в консоль ASCII-арт Дюка");
-        char sy1 = '/';
-        char sy2 = '\\';
-        char sy3 = '_';
-        char sy4 = '(';
-        char sy5 = ')';
-        System.out.println("     " + sy1 + sy2);
-        System.out.println("    " + sy1 +"  " + sy2);
-        System.out.println("   " + sy1 + sy3+sy4+" "+sy5 + sy2);
-        System.out.println("  " + sy1 +"      " + sy2);
-        System.out.println(" " + sy1 +sy3+sy3+sy3+sy1+sy2+sy3+sy3+" "+sy2);
+        System.out.println("\n7. Вывод в консоль ASCII-арт Дюка");
+        char forwardSlash = '/';
+        char backslash = '\\';
+        char underscore = '_';
+        char openParenthesis = '(';
+        char closeParenthesis = ')';
+        System.out.println("     " + forwardSlash + backslash);
+        System.out.println("    " + forwardSlash + "  " + backslash);
+        System.out.println("   " + forwardSlash + underscore + openParenthesis + " " + closeParenthesis + backslash);
+        System.out.println("  " + forwardSlash + "      " + backslash);
+        System.out.println(" " + forwardSlash + underscore + underscore + underscore + underscore + forwardSlash + backslash + underscore + underscore + backslash);
 
-        System.out.println(" \nВывод количества сотен, десятков и единиц числа");
-        int n = 123;
-        int n3 = n % 10;
-        int n2 = n / 10;
-        int n1 = n2 / 10;
-        n2 %= 10;
-        int sumka = n1 + n2 + n3;
-        int multiply = n1 * n2 * n3;
-        System.out.println("Число " + n + " содержит\n" + n1 + " сотен\n" + n2 + " десятков\n" + n3 + " единиц");
-        System.out.println("Сумма его цифр = " + sumka + "\nПроизведение = " + multiply);
+        System.out.println("\n8. Вывод количества сотен, десятков и единиц числа");
+        int defaultNumber = 123;
+        int units = defaultNumber % 10;
+        int hundreds = defaultNumber / 10;
+        int thousands = hundreds / 10;
+        hundreds %= 10;
+        int sum = thousands + hundreds + units;
+        int productOfNumber = thousands * hundreds * units;
+        System.out.println("Число " + defaultNumber + " содержит\n" + thousands + " сотен\n" + hundreds + " десятков\n" + units + " единиц");
+        System.out.println("Сумма его цифр = " + sum + "\nПроизведение = " + productOfNumber);
 
-        System.out.println(" \nВывод времени");
+        System.out.println("\n9. Вывод времени");
         int sec = 86399;
         int hours = sec / 3600;
-        int minutes = (sec - (hours * 3600)) / 60;
-        sec -= hours*3600 + minutes*60;
-        System.out.println(hours + ":" + minutes + ":" +sec);
+        int minutes = sec % 3600 / 60;
+        sec = sec % 3600 % 60;
+        System.out.println(hours + ":" + minutes + ":" + sec);
     }
 }
