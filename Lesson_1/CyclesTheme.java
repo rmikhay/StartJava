@@ -36,13 +36,13 @@ public class CyclesTheme {
         }
 
         System.out.println("\n3. Вывод реверсивного числа и суммы его цифр");
-        int defaultNumber = 1234;
+        int number = 1234;
         int numSum = 0;
         i = 0;
         while (i < 4) {
-            System.out.print(defaultNumber % 10);
-            numSum += defaultNumber % 10;
-            defaultNumber /= 10;
+            System.out.print(number % 10);
+            numSum += number % 10;
+            number /= 10;
             i++;
         }
         System.out.println(" сумму его цирф равна " + numSum);
@@ -132,16 +132,16 @@ public class CyclesTheme {
             System.out.println("   " + k);
         }
         System.out.println("\n8. Проверка, является ли число палиндромом");
-        defaultNumber = 12321;
+        number = 12321;
         num1 = 0;
-        tmp = defaultNumber;
+        tmp = number;
         i = 0;
         int lenNum = 0;
         while (tmp > 0) {
             tmp /= 10;
             lenNum++;
         }
-        tmp = defaultNumber;
+        tmp = number;
         while (lenNum > 0) {
             int pow = 1;
             for (j = 1; j < lenNum; j++) {
@@ -151,14 +151,14 @@ public class CyclesTheme {
             tmp /= 10;
             lenNum--;
         }
-        if (defaultNumber == num1) {
-            System.out.println("число " + defaultNumber + " является палиндромом");
+        if (number == num1) {
+            System.out.println("число " + number + " является палиндромом");
         } else {
-            System.out.println("число " + defaultNumber + " не является палиндромом");
+            System.out.println("число " + number + " не является палиндромом");
         }
         System.out.println("\n9. Определение, является ли число счастливым");
-        defaultNumber = 123600;
-        tmp = defaultNumber;
+        number = 123600;
+        tmp = number;
         int sum1 = 0;
         int sum2 = 0;
         System.out.print("Сумма цифр ");
@@ -175,9 +175,9 @@ public class CyclesTheme {
         }
         System.out.println(" равна " + sum1);
         if (sum1 == sum2) {
-            System.out.println("Число " + defaultNumber + " явялется счастливым");
+            System.out.println("Число " + number + " явялется счастливым");
         } else {
-            System.out.println("Число " + defaultNumber + " не явялется счастливым");
+            System.out.println("Число " + number + " не явялется счастливым");
         }
         System.out.println("\nВывод таблицы умножения Пифагора");
         System.out.println("    ТАБЛИЦА ПИФАГОРА");
