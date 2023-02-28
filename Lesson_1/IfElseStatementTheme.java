@@ -1,7 +1,7 @@
 public class IfElseStatementTheme {
 
     public static void main(String[] args) {
-        System.out.println("Перевод псевдокода на язык Java (это название задачи)");
+        System.out.println("1. Перевод псевдокода на язык Java (это название задачи)");
         int age = 25;
         boolean isMan = true;
         double height = 1.84;
@@ -30,7 +30,7 @@ public class IfElseStatementTheme {
             System.out.println("Unknown");
         }
 
-        System.out.println("\nПоиск max и min числа");
+        System.out.println("\n2. Поиск max и min числа");
         int num1 = 6;
         int num2 = 4;
         if (num1 > num2) {
@@ -40,16 +40,16 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("Равны");
         }
-        System.out.println("\nПроверка числа");
-        int defaultNumber = 34;
+        System.out.println("\n3. Проверка числа");
+        int number = 34;
         System.out.println(num1);
-        if (defaultNumber != 0) {
-            if (defaultNumber % 2 == 0) {
+        if (number != 0) {
+            if (number % 2 == 0) {
                 System.out.println("Четное");
             } else {
                 System.out.println("Нечетное");
             }
-            if (defaultNumber > 0) {
+            if (number > 0) {
                 System.out.println("ПОложительное");
             } else {
                 System.out.println("Отрицательное");
@@ -57,7 +57,7 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("Это 0");
         }
-        System.out.println("\nПоиск одинаковых цифр в числах");
+        System.out.println("\n4. Поиск одинаковых цифр в числах");
         num1 = 123;
         num2 = 223;
         int num1First = num1 / 100;
@@ -84,7 +84,7 @@ public class IfElseStatementTheme {
             System.out.println("Нет равных чисел");
         }
 
-        System.out.println("\nОпределение символа по его коду");
+        System.out.println("\n5. Определение символа по его коду");
         char sym = '\u0057';
         System.out.println(sym);
         if (sym >= '0' && sym <= '9') {
@@ -97,7 +97,7 @@ public class IfElseStatementTheme {
             System.out.println("не буква и не число");
         }
 
-        System.out.println("\nПодсчет суммы вклада и начисленных банком %");
+        System.out.println("\n6. Подсчет суммы вклада и начисленных банком %");
         int sum = 300_000;
         if (sum < 100_000) {
             double percent = Math.round(sum * 0.05);
@@ -110,9 +110,10 @@ public class IfElseStatementTheme {
         } else {
             double percent = Math.round(sum * 0.1);
             double sumTotal = sum + percent;
-            System.out.println("Сумма равна " + sum + ", начисленный процент " + percent + ", итоговая сумма " + sumTotal);
+            System.out.println("Сумма равна " + sum + ", начисленный процент " + percent + ", итоговая сумма " +
+                    sumTotal);
         }
-        System.out.println("\nОпределение оценки по предметам");
+        System.out.println("\n7. Определение оценки по предметам");
         int historyPercent = 59;
         int programmingPercent = 91;
         int historyBall = 0;
@@ -140,7 +141,7 @@ public class IfElseStatementTheme {
         System.out.println(historyBall + " история\n" + progBall + " программирование");
         System.out.println("СРедний балл равен " + average + "\nсредний процент равен " + averagePersent);
 
-        System.out.println("\nРасчет прибыли за год");
+        System.out.println("\n8. Расчет прибыли за год");
         int arenda = 5000;
         int sale = 13000;
         int costPrice = 9000;
@@ -150,15 +151,15 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("прибыль за год: " + profit + " руб.");
         }
-        System.out.println("\nПодсчет количества банкнот");
+        System.out.println("\n9. Подсчет количества банкнот");
         int money = 567;
         int doll_100 = 10;
         int doll_10 = 10;
         int doll_1 = 50;
         int temp = money;
         int money100 = 0, money10 = 0, money1 = 0;
-        int itogBankomat = doll_1 + doll_10 * 10 + doll_100 * 100;
-        if (itogBankomat >= money) {
+        int atmBalance = doll_1 + doll_10 * 10 + doll_100 * 100;
+        if (atmBalance >= money) {
             money100 = temp / 100;
             if (doll_100 >= money100) {
                 temp -= money100 * 100;
