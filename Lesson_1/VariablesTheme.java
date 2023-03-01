@@ -8,12 +8,12 @@ public class VariablesTheme {
         int ramFrequency = 2333;
         long diagonalMonitor = 25;
         char indexCpu = 'K';
-        float RamCount = 2;
+        float ramCount = 2;
         double cpuFrequencyMhz = 3.8;
         System.out.println("Наличие видеокарты - " + isVideocardAvailable + ", объем - " + volumeVideo + "GB");
         System.out.println("Ядер процессора - " + corseOfCpu + ", индекс - " + indexCpu + ", частота - " +
                 cpuFrequencyMhz + "МГц");
-        System.out.println("Оперативная память - " + ramFrequency + "Гц, планок - " + RamCount);
+        System.out.println("Оперативная память - " + ramFrequency + "Гц, планок - " + ramCount);
         System.out.println("Монитор- " + diagonalMonitor + "дюйм \n");
 
         System.out.println("2. Расчет стоимости товара со скидкой");
@@ -90,9 +90,8 @@ public class VariablesTheme {
         System.out.println("\n8. Вывод количества сотен, десятков и единиц числа");
         int number = 123;
         int ones = number % 10;
-        int tens = number / 10;
+        int tens = number / 10 % 10;
         int hundreds = number / 100;
-        tens %= 10;
         int sum = hundreds + tens + ones;
         int productDigits = hundreds * tens * ones;
         System.out.println("Число " + number + " содержит\n" + hundreds + " сотен\n" + tens +
