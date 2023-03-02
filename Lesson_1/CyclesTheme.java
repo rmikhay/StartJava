@@ -46,21 +46,25 @@ public class CyclesTheme {
             i++;
         }
         System.out.println(" сумму его цирф равна " + numSum);
+
         System.out.println("\n4. Вывод чисел на консоль в несколько строк");
-        int countLine = 0;
+        int CountNumberInLine = 0;
         for (i = 1; i < 24; i += 2) {
-            countLine++;
-            if (countLine != 5) {
+            CountNumberInLine++;
+            if (CountNumberInLine != 5) {
                 System.out.printf("%3d", i);
             } else {
                 System.out.printf("%3d%n", i);
-                countLine = 0;
+                CountNumberInLine = 0;
             }
         }
-        int nedoCOunt = 5 - countLine;
-        for (i = countLine; i < 5; i++) {
-            System.out.printf("%3d", 0);
+        if (CountNumberInLine != 0) {
+            int numberLeft = 5 - CountNumberInLine;
+            for (i = CountNumberInLine; i < 5; i++) {
+                System.out.printf("%3d", 0);
+            }
         }
+
         System.out.println("\n\n5. Проверка количества двоек на четность/нечетность");
         num1 = 3242592;
         int countTwo = 0;
@@ -119,6 +123,7 @@ public class CyclesTheme {
             j = 0;
             System.out.println();
         } while (i < 3);
+
         System.out.println("\n7. Отображение ASCII-символов\n");
         System.out.println("Dec" + " Char");
         for (i = 1; i < 48; i += 2) {
@@ -131,6 +136,7 @@ public class CyclesTheme {
             char k = (char) i;
             System.out.println("   " + k);
         }
+
         System.out.println("\n8. Проверка, является ли число палиндромом");
         number = 12321;
         num1 = 0;
@@ -156,6 +162,7 @@ public class CyclesTheme {
         } else {
             System.out.println("число " + number + " не является палиндромом");
         }
+
         System.out.println("\n9. Определение, является ли число счастливым");
         number = 123600;
         tmp = number;
@@ -179,6 +186,7 @@ public class CyclesTheme {
         } else {
             System.out.println("Число " + number + " не явялется счастливым");
         }
+
         System.out.println("\nВывод таблицы умножения Пифагора");
         System.out.println("    ТАБЛИЦА ПИФАГОРА");
         System.out.print(" |");
