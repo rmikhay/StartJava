@@ -98,7 +98,7 @@ public class IfElseStatementTheme {
 
         System.out.println("\n6. Подсчет суммы вклада и начисленных банком %");
         int sum = 300_000;
-        double percent =sum * 0.1;
+        double percent = sum * 0.1;
         if (sum < 100_000) {
             percent = sum * 0.05;
         } else if (sum <= 300_000) {
