@@ -59,8 +59,7 @@ public class CyclesTheme {
             }
         }
         if (CountNumberInLine != 0) {
-            int numberLeft = 5 - CountNumberInLine;
-            for (i = CountNumberInLine; i < 5; i++) {
+            for (i = 5 - CountNumberInLine; i <= 5; i++) {
                 System.out.printf("%3d", 0);
             }
         }
