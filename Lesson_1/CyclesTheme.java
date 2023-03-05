@@ -44,7 +44,7 @@ public class CyclesTheme {
             sumNum += lastDigit;
             num /= 10;
         }
-        System.out.println(", сумма его цирф равна " + sumNum);
+        System.out.println(", сумма его цифр равна " + sumNum);
 
         System.out.println("\n4. Вывод чисел на консоль в несколько строк");
         int countNumberInLine = 0;
@@ -56,7 +56,7 @@ public class CyclesTheme {
                 countNumberInLine = 0;
             }
         }
-        if (countNumberInLine != 0) {
+        if (countNumberInLine > 0) {
             for (int i = 5 - countNumberInLine; i <= 5; i++) {
                 System.out.printf("%3d", 0);
             }
@@ -86,72 +86,47 @@ public class CyclesTheme {
             System.out.println();
         }
         System.out.println();
-        int lineCounter = 0;
+        int count = 0;
         int charInLine = 0;
-        while (lineCounter < 5) {
-            charInLine = lineCounter;
+        while (count < 5) {
+            charInLine = count;
             while (charInLine < 5) {
                 System.out.print("#");
                 charInLine++;
             }
             System.out.println();
-            lineCounter++;
+            count++;
         }
         System.out.println();
-        lineCounter = 1;
-        charInLine = 0;
+
+        count = 1;
         do {
+            charInLine = 3 - Math.abs(3 - count);
+            int currentSymbol = 0;
             do {
                 System.out.print("$");
-                charInLine++;
-            } while (charInLine != lineCounter);
-            lineCounter++;
-            charInLine = 0;
+                currentSymbol += 1;
+            } while (currentSymbol != charInLine);
             System.out.println();
-        } while (lineCounter <= 2);
-        lineCounter = 0;
-        charInLine = 0;
-        do {
-            do {
-                System.out.print("$");
-                charInLine++;
-            } while (charInLine != 3 - lineCounter);
-            lineCounter++;
-            charInLine = 0;
-            System.out.println();
-        } while (lineCounter < 3);
+            count += 1;
+        } while (count != 6);
 
         System.out.println("\n7. Отображение ASCII-символов\n");
         System.out.println("Dec" + " Char");
         for (int i = 1; i < 48; i += 2) {
-            System.out.printf("%3d", i);
-            char k = (char) i;
-            System.out.println("   " + k);
+            System.out.printf("%3d %3c\n", i, (char) i);
         }
         for (int i = 98; i < 122; i += 2) {
-            System.out.printf("%3d", i);
-            char symbol = (char) i;
-            System.out.println("   " + symbol);
+            System.out.printf("%3d %3c\n", i, (char) i);
         }
 
         System.out.println("\n8. Проверка, является ли число палиндромом");
         num = 12321;
         num1 = 0;
-        copyNum1 = num;
-        int lenNum = 0;
-        while (copyNum1 > 0) {
-            copyNum1 /= 10;
-            lenNum++;
-        }
-        copyNum1 = num;
-        while (lenNum > 0) {
-            int powTens = 1;
-            for (int j = 1; j < lenNum; j++) {
-                powTens *= 10;
-            }
-            num1 += (copyNum1 % 10) * powTens;
-            copyNum1 /= 10;
-            lenNum--;
+        int copyNum = num;
+        while (copyNum > 0) {
+            num1 = num1 * 10 + (copyNum % 10);
+            copyNum /= 10;
         }
         if (num == num1) {
             System.out.println("число " + num + " является палиндромом");
@@ -161,34 +136,37 @@ public class CyclesTheme {
 
         System.out.println("\n9. Определение, является ли число счастливым");
         num = 123600;
-        copyNum1 = num;
-        int sumFirstThrees = 0;
-        int sumSecondThrees = 0;
-        int firstThrees = 0;
-        int secondThrees = 0;
+        copyNum = num;
+        int sumLeftHalf = 0;
+        int sumRightHalf = 0;
+        int leftHalf = 0;
+        int rightHalf = 0;
         int lastDigit;
         int powTens = 1;
-        for (int i = 0; i < 3; i++) {
-            lastDigit = copyNum1 % 10;
-            sumSecondThrees += lastDigit;
-            secondThrees += lastDigit * powTens;
-            copyNum1 /= 10;
-            powTens *= 10;
+        int digit = 1;
+        while (copyNum > 0) {
+            lastDigit = copyNum % 10;
+            if (digit <= 3) {
+                sumRightHalf += lastDigit;
+                rightHalf += lastDigit * powTens;
+                powTens *= 10;
+            } else {
+                sumLeftHalf += lastDigit;
+                leftHalf += lastDigit * powTens;
+                powTens *= 10;
+            }
+            copyNum /= 10;
+            if (digit == 3) {
+                powTens = 1;
+            }
+            digit += 1;
         }
-        powTens = 1;
-        for (int i = 0; i < 3; i++) {
-            lastDigit = copyNum1 % 10;
-            sumFirstThrees += lastDigit;
-            firstThrees += lastDigit * powTens;
-            powTens *= 10;
-            copyNum1 /= 10;
-        }
-        System.out.println("Сумма цифр " + firstThrees + " равна " + sumFirstThrees);
-        System.out.println("Сумма цифр " + secondThrees + " равна " + sumSecondThrees);
-        if (sumFirstThrees == sumSecondThrees) {
-            System.out.println("Число " + num + " явялется счастливым");
+        System.out.printf("Сумма цифр %03d равна %d\n", leftHalf, sumLeftHalf);
+        System.out.printf("Сумма цифр %03d равна %d\n", rightHalf, sumRightHalf);
+        if (sumLeftHalf == sumRightHalf) {
+            System.out.println("Число " + num + " является счастливым");
         } else {
-            System.out.println("Число " + num + " не явялется счастливым");
+            System.out.println("Число " + num + " не является счастливым");
         }
 
         System.out.println("\nВывод таблицы умножения Пифагора");
