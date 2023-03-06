@@ -86,30 +86,31 @@ public class CyclesTheme {
             System.out.println();
         }
         System.out.println();
-        int count = 0;
-        int charInLine = 0;
-        while (count < 5) {
-            charInLine = count;
-            while (charInLine < 5) {
+
+        int numberLine = 0;
+        int charsInLine = 0;
+        while (numberLine < 5) {
+            charsInLine = numberLine;
+            while (charsInLine < 5) {
                 System.out.print("#");
-                charInLine++;
+                charsInLine++;
             }
             System.out.println();
-            count++;
+            numberLine++;
         }
         System.out.println();
 
-        count = 1;
+        numberLine = 1;
         do {
-            charInLine = 3 - Math.abs(3 - count);
+            charsInLine = 3 - Math.abs(3 - numberLine);
             int currentSymbol = 0;
             do {
                 System.out.print("$");
                 currentSymbol += 1;
-            } while (currentSymbol != charInLine);
+            } while (currentSymbol != charsInLine);
             System.out.println();
-            count += 1;
-        } while (count != 6);
+            numberLine += 1;
+        } while (numberLine != 6);
 
         System.out.println("\n7. Отображение ASCII-символов\n");
         System.out.println("Dec" + " Char");
@@ -122,13 +123,13 @@ public class CyclesTheme {
 
         System.out.println("\n8. Проверка, является ли число палиндромом");
         num = 12321;
-        num1 = 0;
+        int reverseNum = 0;
         int copyNum = num;
         while (copyNum > 0) {
-            num1 = num1 * 10 + (copyNum % 10);
+            reverseNum = reverseNum * 10 + (copyNum % 10);
             copyNum /= 10;
         }
-        if (num == num1) {
+        if (num == reverseNum) {
             System.out.println("число " + num + " является палиндромом");
         } else {
             System.out.println("число " + num + " не является палиндромом");
@@ -139,27 +140,18 @@ public class CyclesTheme {
         copyNum = num;
         int sumLeftHalf = 0;
         int sumRightHalf = 0;
-        int leftHalf = 0;
-        int rightHalf = 0;
-        int lastDigit;
-        int powTens = 1;
-        int digit = 1;
+        int leftHalf = num / 1000;
+        int rightHalf = num % 1000;
+        int digitNumber = 0;
         while (copyNum > 0) {
-            lastDigit = copyNum % 10;
-            if (digit <= 3) {
+            int lastDigit = copyNum % 10;
+            if (digitNumber < 3) {
                 sumRightHalf += lastDigit;
-                rightHalf += lastDigit * powTens;
-                powTens *= 10;
             } else {
                 sumLeftHalf += lastDigit;
-                leftHalf += lastDigit * powTens;
-                powTens *= 10;
             }
             copyNum /= 10;
-            if (digit == 3) {
-                powTens = 1;
-            }
-            digit += 1;
+            digitNumber++;
         }
         System.out.printf("Сумма цифр %03d равна %d\n", leftHalf, sumLeftHalf);
         System.out.printf("Сумма цифр %03d равна %d\n", rightHalf, sumRightHalf);

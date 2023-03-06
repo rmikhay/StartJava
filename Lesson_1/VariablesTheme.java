@@ -1,5 +1,4 @@
 public class VariablesTheme {
-
     public static void main(String[] args) {
         System.out.println("1. Вывод значений переменных на консоль");
         boolean isVideocardAvailable = true;
@@ -62,6 +61,7 @@ public class VariablesTheme {
         y ^= x;
         x ^= y;
         System.out.println("Получилось " + x + " и " + y);
+
 
         System.out.println("\n6. Вывод символов и их кодов");
         char hash = '#';
