@@ -1,4 +1,4 @@
-public class Calculator {
+public class CalculatorLesson1 {
 
     public static void main(String[] args) {
         char sign = '/';

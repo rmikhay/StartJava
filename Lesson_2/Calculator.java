@@ -1,45 +1,45 @@
 public class Calculator {
-    public static int pow(int multiply, int power) {
-        int answer = 1;
-        for (int i = 0; i < power; i++) {
-            answer *= multiply;
+    public int pow(int base, int power) {
+        int resultPow = 1;
+        for (int i = 0; i < power; i ++) {
+            resultPow *= base;
         }
-        return answer;
+        return resultPow;
     }
 
-    public static void equal(int a, char sign, int b) {
-        int result;
+    public void calculator(int a, char sign, int b) {
+        int result = 0;
+        double resultDiv = 0;
         switch (sign) {
             case '+': {
                 result = a + b;
-                System.out.println(a + " " + sign + " " + b + "  = " + result);
                 break;
             }
             case '-': {
                 result = a - b;
-                System.out.println(a + " " + sign + " " + b + "  = " + result);
                 break;
             }
             case '*': {
                 result = a * b;
-                System.out.println(a + " " + sign + " " + b + "  = " + result);
                 break;
             }
             case '/': {
-                double result_div = (double) a / (double) b;
-                System.out.println(a + " " + sign + " " + b + "  = " + result_div);
+                resultDiv = (double) a / (double) b;
                 break;
             }
             case '^': {
                 result = pow(a, b);
-                System.out.println(a + " " + sign + " " + b + "  = " + result);
                 break;
             }
             case '%': {
                 result = a % b;
-                System.out.println(a + " " + sign + " " + b + "  = " + result);
                 break;
             }
+        }
+        if (sign == '/') {
+            System.out.printf("%d %c %d = %5.2f\n", a, sign, b, resultDiv);
+        } else {
+            System.out.println(a + " " + sign + " " + b + " = " + result);
         }
     }
 }
