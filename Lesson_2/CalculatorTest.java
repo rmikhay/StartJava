@@ -13,7 +13,6 @@ public class CalculatorTest {
         int b = scanner.nextInt();
         calculator.calculate(a, sign, b);
     }
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String answer = "yes";
@@ -24,6 +23,5 @@ public class CalculatorTest {
                 answer = scanner.nextLine();
             } while (!answer.equals("yes") && !answer.equals("no"));
         } while (!answer.equals("no"));
-
     }
 }
