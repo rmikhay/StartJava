@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class CalculatorTest {
-
     public static void startCalculate() {
         Scanner scanner = new Scanner(System.in);
         Calculator calculator = new Calculator();
