@@ -1,30 +1,4 @@
 public class Wolf {
-    private String name;
-    private String sex;
-    private double weight;
-    private String color;
-    private int age;
-
-    public void go() {
-        System.out.println("Идет");
-    }
-
-    public void sit() {
-        System.out.println("Сидит");
-    }
-
-    public void run() {
-        System.out.println("Бежит");
-    }
-
-    public void howl() {
-        System.out.println("Воет");
-    }
-
-    public void hunter() {
-        System.out.println("Охотится");
-    }
-
     public String getName() {
         return name;
     }
@@ -68,4 +42,32 @@ public class Wolf {
             this.age = age;
         }
     }
+
+    private String name;
+    private String sex;
+    private double weight;
+    private String color;
+    private int age;
+
+    public void go() {
+        System.out.println("Идет");
+    }
+
+    public void sit() {
+        System.out.println("Сидит");
+    }
+
+    public void run() {
+        System.out.println("Бежит");
+    }
+
+    public void howl() {
+        System.out.println("Воет");
+    }
+
+    public void hunt() {
+        System.out.println("Охотится");
+    }
+
+
 }

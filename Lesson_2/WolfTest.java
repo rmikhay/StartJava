@@ -14,7 +14,7 @@ public class WolfTest {
         System.out.println(leva.getWeight());
         leva.go();
         leva.howl();
-        leva.hunter();
+        leva.hunt();
         leva.run();
         leva.sit();
     }
