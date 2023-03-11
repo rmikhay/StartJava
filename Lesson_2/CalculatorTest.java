@@ -1,8 +1,20 @@
 import java.util.Scanner;
 
 public class CalculatorTest {
-    public static void startCalculate() {
-        Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        String answer = "yes";
+        do {
+            startCalculation();
+            do {
+                System.out.print("Хотите продолжить вычисления? [yes/no]");
+                answer = scanner.nextLine();
+            } while (!answer.equals("yes") && !answer.equals("no"));
+        } while (!answer.equals("no"));
+    }
+
+    private static void startCalculation() {
         Calculator calculator = new Calculator();
         System.out.print("Введите первое число: ");
         int a = scanner.nextInt();
@@ -11,16 +23,5 @@ public class CalculatorTest {
         System.out.print("Введите второе число: ");
         int b = scanner.nextInt();
         calculator.calculate(a, sign, b);
-    }
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String answer = "yes";
-        do {
-            startCalculate();
-            do {
-                System.out.print("Хотите продолжить вычисления? [yes/no]");
-                answer = scanner.nextLine();
-            } while (!answer.equals("yes") && !answer.equals("no"));
-        } while (!answer.equals("no"));
     }
 }
