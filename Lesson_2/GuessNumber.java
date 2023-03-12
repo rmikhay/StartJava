@@ -8,9 +8,11 @@ public class GuessNumber {
     private int hiddenNumber;
     private boolean gameOver = false;
 
+    private boolean introducedPlayers = false;
+
     public void generateNumber() {
         Random random = new Random();
-        hiddenNumber = random.nextInt(1,101);
+        hiddenNumber = random.nextInt(1, 101);
     }
 
     public void createPlayer() {
@@ -56,11 +58,46 @@ public class GuessNumber {
         return gameOver;
     }
 
+    public void goPlayers() {
+        while (true) {
+            enterNumberPlayer1();
+            checkNumberPlayer1();
+            if (isGameOver()) {
+                break;
+            }
+            enterNumberPlayer2();
+            checkNumberPlayer2();
+            if (isGameOver()) {
+                break;
+            }
+        }
+    }
+
+    public void startGame() {
+        if (!introducedPlayers) {
+            System.out.println("Представьтесь");
+            createPlayer();
+            setIntroducedPlayers(true);
+        }
+        System.out.println("Компьютер загадал число");
+        generateNumber();
+        System.out.println("Загадано число " + getHiddenNumber());
+        goPlayers();
+    }
+
     public void setGameOver(boolean gameOver) {
         this.gameOver = gameOver;
     }
 
     public int getHiddenNumber() {
         return hiddenNumber;
+    }
+
+    public boolean isIntroducedPlayers() {
+        return introducedPlayers;
+    }
+
+    public void setIntroducedPlayers(boolean introducedPlayers) {
+        this.introducedPlayers = introducedPlayers;
     }
 }

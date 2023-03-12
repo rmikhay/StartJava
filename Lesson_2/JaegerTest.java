@@ -10,10 +10,10 @@ public class JaegerTest {
         jaeger1.setArmor(6);
         jaeger1.setStrength(8);
         jaeger1.setPilotsNumber(3);
+
         Jaeger jaeger2 = new Jaeger("Coyote Tango", "Mark-1", 280.0, 2.312, 5, 4, 7, 2);
         jaeger1.move();
         System.out.println("Модель " + jaeger2.getModelName() + " = " + jaeger2.getMark());
         System.out.println("Скорость " + jaeger1.getModelName() + " = " + jaeger1.getSpeed());
-
     }
 }

@@ -11,6 +11,18 @@ public class Jaeger {
     public Jaeger() {
     }
 
+    public Jaeger(String modelName, String mark, double height, double weight, int speed, int armor,
+            int strength, int pilotsNumber) {
+        this.modelName = modelName;
+        this.mark = mark;
+        setHeight(height);
+        setWeight(weight);
+        setSpeed(speed);
+        setArmor(armor);
+        setStrength(strength);
+        setPilotsNumber(pilotsNumber);
+    }
+
     public String getModelName() {
         return modelName;
     }
@@ -107,39 +119,5 @@ public class Jaeger {
         System.out.println("Шагнул вперед");
     }
 
-    public Jaeger(String modelName, String mark, double height, double weight, int speed, int armor,
-                  int strength, int pilotsNumber) {
-        this.modelName = modelName;
-        this.mark = mark;
-        if (height > 0) {
-            this.height = height;
-        } else {
-            System.out.println("Неверное значение");
-        }
-        if (weight > 0) {
-            this.weight = weight;
-        } else {
-            System.out.println("Неверное значение");
-        }
-        if (speed > 0) {
-            this.speed = speed;
-        } else {
-            System.out.println("Неверное значение");
-        }
-        if (armor > 0) {
-            this.armor = armor;
-        } else {
-            System.out.println("Неверное значение");
-        }
-        if (strength > 0) {
-            this.strength = strength;
-        } else {
-            System.out.println("Неверное значение");
-        }
-        if (pilotsNumber > 0) {
-            this.pilotsNumber = pilotsNumber;
-        } else {
-            System.out.println("Неверное значение");
-        }
-    }
+
 }
