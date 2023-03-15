@@ -6,13 +6,13 @@ public class GuessNumber {
     Player player2;
     Scanner scanner = new Scanner(System.in);
     private int hiddenNumber;
-    private boolean gameOver = false;
-    private boolean introducedPlayers = false;
 
-    public void startGame() {
-        if (!introducedPlayers) {
-            introducedPlayers = true;
-        }
+    public GuessNumber(String player1, String player2) {
+        this.player1 = new Player(player1);
+        this.player2 = new Player(player2);
+    }
+
+    public void start() {
         System.out.println("Компьютер загадал число");
         generateNumber();
         System.out.println("Загадано число " + hiddenNumber);
@@ -25,40 +25,34 @@ public class GuessNumber {
     }
 
     public void goPlayers() {
-        gameOver = false;
         while (true) {
-            player1.setNumber(enterNumber(player1.getName()));
-            checkNumber(player1.getNumber(), player1.getName());
-            if (gameOver) {
+            enterNumber(player1);
+            if (checkNumber(player1)) {
                 break;
             }
-            player2.setNumber(enterNumber(player2.getName()));
-            checkNumber(player2.getNumber(), player2.getName());
-            if (gameOver) {
+            enterNumber(player2);
+            if (checkNumber(player2)) {
                 break;
             }
         }
     }
 
-    public int enterNumber(String name) {
-        System.out.println(name + " вводит число");
-        return scanner.nextInt();
+    public void enterNumber(Player player) {
+        System.out.println(player.getName() + " вводит число");
+        int number = scanner.nextInt();
+        player.setNumber(number);
     }
 
-    public void checkNumber(int number, String name) {
-        if (number == hiddenNumber) {
-            System.out.println("Правильно, победил игрок " + name);
-            gameOver = true;
-        } else if (hiddenNumber > number) {
-            System.out.println("число " + number + " меньше того, что загадал компьютер");
+    public boolean checkNumber(Player player) {
+        if (player.getNumber() == hiddenNumber) {
+            System.out.println("Правильно, победил игрок " + player.getName());
+            return true;
+        } else if (hiddenNumber > player.getNumber()) {
+            System.out.println("число " + player.getNumber() + " меньше того, что загадал компьютер");
         } else {
-            System.out.println("число " + number + " больше того, что загадал компьютер");
+            System.out.println("число " + player.getNumber() + " больше того, что загадал компьютер");
         }
-    }
-
-    public GuessNumber(String player1, String player2) {
-        this.player1 = new Player(player1);
-        this.player2 = new Player(player2);
+        return false;
     }
 
 }
