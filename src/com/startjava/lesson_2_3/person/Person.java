@@ -1,7 +1,9 @@
+package com.startjava.lesson_2_3.person;
+
 public class Person {
     String sex = "male";
     String name = "Roman";
-    double heght = 1.84;
+    double height = 1.84;
     int weight = 94;
     int age = 30;
 

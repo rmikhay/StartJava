@@ -1,4 +1,6 @@
-public class CalculatorLesson1 {
+package com.startjava.lesson_1.finalWork;
+
+public class Calculator {
 
     public static void main(String[] args) {
         char sign = '/';
