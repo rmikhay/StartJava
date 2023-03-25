@@ -7,36 +7,32 @@ public class ArrayTheme {
 
     public static void main(String[] args) {
         System.out.println("1. Реверс значений массива");
-        int[] intArray = new int[]{2, 5, 1, 7, 3, 4, 6};
+        int[] intArray = {2, 5, 1, 7, 3, 4, 6};
+        printArray(intArray);
         int len = intArray.length;
-        int[] newArray = new int[len];
-        for (int i = 0; i < len; i++) {
-            newArray[i] = intArray[len - i - 1];
+        for (int i = 0; i < len / 2; i++) {
+            int temp = intArray[i];
+            intArray[i] = intArray[len - i - 1];
+            intArray[len - i - 1] = temp;
         }
-        for (int number : intArray) {
-            System.out.print(number + " ");
-        }
-        System.out.println();
-        for (int number : newArray) {
-            System.out.print(number + " ");
-        }
+        printArray(intArray);
 
-        System.out.println("\n\n2. Вывод произведения элементов массива");
+        System.out.println("\n2. Вывод произведения элементов массива");
         intArray = new int[10];
         len = intArray.length;
         for (int i = 0; i < len; i++) {
             intArray[i] = i;
         }
         int productNumbers = 1;
-        for (int number : intArray) {
-            productNumbers = (number != 0 && number != 9) ? productNumbers * number : productNumbers;
-        }
         for (int i = 1; i < len - 1; i++) {
+            if (intArray[i] != 0 && intArray[i] != 9) {
+                productNumbers *= intArray[i];
+            }
             System.out.print(intArray[i] + (i < (len - 2) ? " * " : (" = " + productNumbers)));
         }
         System.out.println("\n" + intArray[0] + " " + intArray[9]);
 
-        System.out.println("3. Удаление элементов массива");
+        System.out.println("\n3. Удаление элементов массива");
         double[] doubleArray = new double[15];
         len = doubleArray.length;
         for (int i = 0; i < len; i++) {
@@ -44,29 +40,27 @@ public class ArrayTheme {
         }
         System.out.println("До изменения:");
         printArray(doubleArray);
-        int middleIndex = len / 2;
-        int emptyArray = 0;
+        double middleElement = doubleArray[len / 2];
+        int emptyElements = 0;
         for (int i = 0; i < len; i++) {
-            if (doubleArray[i] > doubleArray[middleIndex]) {
+            if (doubleArray[i] > middleElement) {
                 doubleArray[i] = 0;
-                emptyArray++;
+                emptyElements++;
             }
         }
         System.out.println("После изменения:");
         printArray(doubleArray);
-        System.out.println("Количество измененных ячеек: " + emptyArray);
+        System.out.println("Количество измененных ячеек: " + emptyElements);
 
-        System.out.println("4. Вывод элементов массива лесенкой в обратном порядке");
-        char[] charArray = new char[26];
-        char symbol = 'A';
-        len = charArray.length;
+        System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
+        char[] books = new char[26];
+        len = books.length;
         for (int i = 0; i < len; i++) {
-            charArray[i] = symbol;
-            symbol++;
+            books[i] = (char) ('A' + i);
         }
         for (int i = 0; i < len; i++) {
             for (int j = 0; j <= i; j++) {
-                System.out.print(charArray[len - j - 1]);
+                System.out.print(books[len - j - 1]);
             }
             System.out.println();
         }
@@ -114,6 +108,13 @@ public class ArrayTheme {
         }
         System.out.println(Arrays.deepToString(stringArray));
         System.out.println(Arrays.deepToString(newStringArray));
+    }
+
+    private static void printArray(int[] array) {
+        for (int number : array) {
+            System.out.print(number + " ");
+        }
+        System.out.println();
     }
 
     private static void printArray(double[] array) {
