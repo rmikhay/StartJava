@@ -11,9 +11,10 @@ public class ArrayTheme {
         printArray(intArray);
         int len = intArray.length;
         for (int i = 0; i < len / 2; i++) {
+            len--;
             int temp = intArray[i];
-            intArray[i] = intArray[len - i - 1];
-            intArray[len - i - 1] = temp;
+            intArray[i] = intArray[len];
+            intArray[len] = temp;
         }
         printArray(intArray);
 
@@ -25,9 +26,7 @@ public class ArrayTheme {
         }
         int productNumbers = 1;
         for (int i = 1; i < len - 1; i++) {
-            if (intArray[i] != 0 && intArray[i] != 9) {
-                productNumbers *= intArray[i];
-            }
+            productNumbers *= intArray[i];
             System.out.print(intArray[i] + (i < (len - 2) ? " * " : (" = " + productNumbers)));
         }
         System.out.println("\n" + intArray[0] + " " + intArray[9]);
@@ -40,17 +39,17 @@ public class ArrayTheme {
         }
         System.out.println("До изменения:");
         printArray(doubleArray);
-        double middleElement = doubleArray[len / 2];
-        int emptyElements = 0;
+        double middleCellNumber = doubleArray[len / 2];
+        int NumberOfResets = 0;
         for (int i = 0; i < len; i++) {
-            if (doubleArray[i] > middleElement) {
+            if (doubleArray[i] > middleCellNumber) {
                 doubleArray[i] = 0;
-                emptyElements++;
+                NumberOfResets++;
             }
         }
         System.out.println("После изменения:");
         printArray(doubleArray);
-        System.out.println("Количество измененных ячеек: " + emptyElements);
+        System.out.println("Количество измененных ячеек: " + NumberOfResets);
 
         System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
         char[] books = new char[26];
@@ -73,7 +72,7 @@ public class ArrayTheme {
         for (int i = 0; i < len; i++) {
             do {
                 randomNumber = random.nextInt(60, 100);
-            } while (checkNumberInArray(intArray, randomNumber));
+            } while (isUnique(intArray, randomNumber));
             intArray[i] = randomNumber;
         }
         Arrays.sort(intArray);
@@ -85,29 +84,29 @@ public class ArrayTheme {
         }
 
         System.out.println("\n\n6. Копирование не пустых строк");
-        String[] stringArray = new String[]{"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
-        int lenNewArray = 0;
-        len = stringArray.length;
-        for (String element : stringArray) {
+        String[] srcStrings = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
+        int countNonEmptyStrings = 0;
+        len = srcStrings.length;
+        for (String element : srcStrings) {
             if (!element.isBlank()) {
-                lenNewArray++;
+                countNonEmptyStrings++;
             }
         }
-        String[] newStringArray = new String[lenNewArray];
-        int counter = 0;
-        int sizeNewArray = 0;
+        String[] destStrings = new String[countNonEmptyStrings];
+        int currentNonEmptyCells = 0;
+        int currentNumberDestCells = 0;
         for (int i = 0; i < len; i++) {
-            if (!stringArray[i].isBlank()) {
-                counter++;
-                sizeNewArray++;
-            }
-            if (stringArray[i].isBlank() || i == len - 1) {
-                System.arraycopy(stringArray, i - counter, newStringArray, sizeNewArray - counter, counter);
-                counter = 0;
+            if (srcStrings[i].isBlank() || i == len - 1) {
+                System.arraycopy(srcStrings, i - currentNonEmptyCells, destStrings,
+                        currentNumberDestCells - currentNonEmptyCells, currentNonEmptyCells);
+                currentNonEmptyCells = 0;
+            } else {
+                currentNonEmptyCells++;
+                currentNumberDestCells++;
             }
         }
-        System.out.println(Arrays.deepToString(stringArray));
-        System.out.println(Arrays.deepToString(newStringArray));
+        System.out.println(Arrays.deepToString(srcStrings));
+        System.out.println(Arrays.deepToString(destStrings));
     }
 
     private static void printArray(int[] array) {
@@ -128,14 +127,12 @@ public class ArrayTheme {
         System.out.println();
     }
 
-    private static boolean checkNumberInArray(int[] array, int number) {
-        boolean result = false;
+    private static boolean isUnique(int[] array, int number) {
         for (int element : array) {
             if (element == number) {
-                result = true;
-                break;
+                return true;
             }
         }
-        return result;
+        return false;
     }
 }
