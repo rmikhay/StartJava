@@ -11,9 +11,8 @@ public class ArrayTheme {
         printArray(intArray);
         int len = intArray.length;
         for (int i = 0; i < len / 2; i++) {
-            len--;
             int temp = intArray[i];
-            intArray[i] = intArray[len];
+            intArray[i] = intArray[--len];
             intArray[len] = temp;
         }
         printArray(intArray);
@@ -40,26 +39,26 @@ public class ArrayTheme {
         System.out.println("До изменения:");
         printArray(doubleArray);
         double middleCellNumber = doubleArray[len / 2];
-        int NumberOfResets = 0;
+        int numberResets = 0;
         for (int i = 0; i < len; i++) {
             if (doubleArray[i] > middleCellNumber) {
                 doubleArray[i] = 0;
-                NumberOfResets++;
+                numberResets++;
             }
         }
         System.out.println("После изменения:");
         printArray(doubleArray);
-        System.out.println("Количество измененных ячеек: " + NumberOfResets);
+        System.out.println("Количество измененных ячеек: " + numberResets);
 
         System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
-        char[] books = new char[26];
-        len = books.length;
+        char[] letters = new char[26];
+        len = letters.length;
         for (int i = 0; i < len; i++) {
-            books[i] = (char) ('A' + i);
+            letters[i] = (char) ('A' + i);
         }
         for (int i = 0; i < len; i++) {
             for (int j = 0; j <= i; j++) {
-                System.out.print(books[len - j - 1]);
+                System.out.print(letters[len - j - 1]);
             }
             System.out.println();
         }
@@ -87,26 +86,26 @@ public class ArrayTheme {
         String[] srcStrings = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
         int countNonEmptyStrings = 0;
         len = srcStrings.length;
-        for (String element : srcStrings) {
-            if (!element.isBlank()) {
+        for (String string : srcStrings) {
+            if (!string.isBlank()) {
                 countNonEmptyStrings++;
             }
         }
         String[] destStrings = new String[countNonEmptyStrings];
-        int currentNonEmptyCells = 0;
-        int currentNumberDestCells = 0;
+        int srcPos = 0;
+        int destPos = 0;
         for (int i = 0; i < len; i++) {
             if (srcStrings[i].isBlank() || i == len - 1) {
-                System.arraycopy(srcStrings, i - currentNonEmptyCells, destStrings,
-                        currentNumberDestCells - currentNonEmptyCells, currentNonEmptyCells);
-                currentNonEmptyCells = 0;
+                System.arraycopy(srcStrings, i - srcPos, destStrings,
+                        destPos - srcPos, srcPos);
+                srcPos = 0;
             } else {
-                currentNonEmptyCells++;
-                currentNumberDestCells++;
+                srcPos++;
+                destPos++;
             }
         }
-        System.out.println(Arrays.deepToString(srcStrings));
-        System.out.println(Arrays.deepToString(destStrings));
+        System.out.println(Arrays.toString(srcStrings));
+        System.out.println(Arrays.toString(destStrings));
     }
 
     private static void printArray(int[] array) {
