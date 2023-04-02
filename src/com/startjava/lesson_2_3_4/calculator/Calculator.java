@@ -1,28 +1,25 @@
 package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
-    public double calculate(int a, char sign, int b) {
-        double result = 0;
+    public double calculate(String string) {
+        String[] problem = string.split(" ");
+        int a = Integer.parseInt(problem[0]);
+        int b = Integer.parseInt(problem[2]);
+        char sign = problem[1].charAt(0);
         switch (sign) {
             case '+':
-                result = Math.addExact(a, b);
-                break;
+                return Math.addExact(a, b);
             case '-':
-                result = Math.subtractExact(a, b);
-                break;
+                return Math.subtractExact(a, b);
             case '*':
-                result = Math.multiplyExact(a, b);
-                break;
+                return Math.multiplyExact(a, b);
             case '/':
-                result = (double) a / (double) b;
-                break;
+                return (double) a / (double) b;
             case '^':
-                result = Math.pow(a, b);
-                break;
+                return Math.pow(a, b);
             case '%':
-                result = a % b;
-                break;
+                return a % b;
         }
-        return result;
+        return 0;
     }
 }

@@ -42,16 +42,15 @@ public class GuessNumber {
         }
         printNumbers(player1);
         printNumbers(player2);
-        dataReset(player1);
-        dataReset(player2);
+        player1.dataReset();
+        player2.dataReset();
     }
 
     private void enterNumber(Player player) {
         System.out.println(player.getName() + " вводит число");
         int number = scanner.nextInt();
-        player.setNumber(number);
         player.setAttempts(player.getAttempts() + 1);
-        player.addNumbers(player.getAttempts(), number);
+        player.addNumber(number);
     }
 
     private boolean compareNumbers(Player player) {
@@ -74,16 +73,10 @@ public class GuessNumber {
     }
 
     private void printNumbers(Player player) {
-        int[] array = Arrays.copyOf(player.getNumbers(), player.getAttempts());
+        int[] array = player.getNumbers();
         for (int i = 0; i < array.length; i++) {
             System.out.print(player.getNumbers()[i] + " ");
         }
         System.out.println();
-    }
-
-    private void dataReset(Player player) {
-        player.setNumber(player.getAttempts());
-        Arrays.fill(player.getNumbers(), 0, player.getAttempts(), 0);
-        player.setAttempts(0);
     }
 }

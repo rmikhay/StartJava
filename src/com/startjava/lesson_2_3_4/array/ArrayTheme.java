@@ -51,14 +51,14 @@ public class ArrayTheme {
         System.out.println("Количество измененных ячеек: " + numberResets);
 
         System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
-        char[] letters = new char[26];
-        len = letters.length;
+        char[] alphabet = new char[26];
+        len = alphabet.length;
         for (int i = 0; i < len; i++) {
-            letters[i] = (char) ('A' + i);
+            alphabet[i] = (char) ('A' + i);
         }
         for (int i = 0; i < len; i++) {
             for (int j = 0; j <= i; j++) {
-                System.out.print(letters[len - j - 1]);
+                System.out.print(alphabet[len - j - 1]);
             }
             System.out.println();
         }
