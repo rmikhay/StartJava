@@ -19,13 +19,12 @@ public class CalculatorTest {
     private static void startCalculation() {
         Calculator calculator = new Calculator();
         System.out.print("Введите математическое выражение: ");
-        String problem = scanner.nextLine();
-        double result = calculator.calculate(problem);
+        String task = scanner.nextLine();
+        double result = calculator.calculate(task);
         if (result == (int) result) {
-            System.out.printf("%s = %2.0f\n", problem, result);
+            System.out.printf("%s = %2.0f\n", task, result);
         } else {
-            System.out.printf("%s = %2.3f\n", problem, result);
+            System.out.printf("%s = %2.3f\n", task, result);
         }
-
     }
 }
