@@ -21,10 +21,6 @@ public class Player {
         return attempts;
     }
 
-    public void setAttempts(int attempts) {
-        this.attempts = attempts;
-    }
-
     public int getNumber() {
         return numbers[attempts - 1];
     }
@@ -34,10 +30,11 @@ public class Player {
     }
 
     public void addNumber(int number) {
+        attempts++;
         numbers[attempts - 1] = number;
     }
 
-    public void dataReset() {
+    public void clear() {
         Arrays.fill(numbers, 0, attempts, 0);
         attempts = 0;
     }

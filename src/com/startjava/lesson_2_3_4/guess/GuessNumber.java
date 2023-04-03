@@ -1,6 +1,5 @@
 package com.startjava.lesson_2_3_4.guess;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -9,7 +8,7 @@ public class GuessNumber {
     private Player player2;
     Scanner scanner = new Scanner(System.in);
     private int hiddenNumber;
-    private int countAttempts = 10;
+    private final int countAttempts = 3;
 
     public GuessNumber(String namePlayer1, String namePlayer2) {
         this.player1 = new Player(namePlayer1, countAttempts);
@@ -35,33 +34,30 @@ public class GuessNumber {
             if (compareNumbers(player1)) {
                 break;
             }
+            compareAttempts(player1);
             enterNumber(player2);
             if (compareNumbers(player2)) {
                 break;
             }
+            compareAttempts(player2);
         }
         printNumbers(player1);
         printNumbers(player2);
-        player1.dataReset();
-        player2.dataReset();
+        player1.clear();
+        player2.clear();
     }
 
     private void enterNumber(Player player) {
         System.out.println(player.getName() + " вводит число");
         int number = scanner.nextInt();
-        player.setAttempts(player.getAttempts() + 1);
         player.addNumber(number);
     }
 
     private boolean compareNumbers(Player player) {
         int number = player.getNumber();
         if (number == hiddenNumber) {
-            System.out.println("Игрок " + player.getName() + " угадал число " + hiddenNumber +
-                    " с " + player.getAttempts() + " попытки");
-            return true;
-        }
-        if (player.getAttempts() == 0) {
-            System.out.println("У " + player.getName() + " закончились попытки");
+            System.out.println("Игрок " + player.getName() + " угадал число " + hiddenNumber + " с "
+                    + player.getAttempts() + " попытки");
             return true;
         }
         if (hiddenNumber > number) {
@@ -72,10 +68,16 @@ public class GuessNumber {
         return false;
     }
 
+    private void compareAttempts(Player player) {
+        if (player.getAttempts() == countAttempts) {
+            System.out.println("У " + player.getName() + " закончились попытки");
+        }
+    }
+
     private void printNumbers(Player player) {
-        int[] array = player.getNumbers();
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(player.getNumbers()[i] + " ");
+        int[] copyNumbers = player.getNumbers();
+        for (int number : copyNumbers) {
+            System.out.print(number + " ");
         }
         System.out.println();
     }
